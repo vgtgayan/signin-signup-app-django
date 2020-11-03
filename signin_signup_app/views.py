@@ -6,8 +6,8 @@ def signin_view(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
         form.save()
-
-    form = UserForm()
+        form = UserForm()
+    
     
     context = {
         'form' : form
