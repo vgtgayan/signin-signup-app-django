@@ -23,15 +23,17 @@
         <div class="container">
             <div class="forms-container">
                 <div class="signin-signup">
-                    <form action="" class="sign-in-form">
+                    <form method='POST' action="" class="sign-in-form"> {% csrf_token %}
                         <h2 class="title">Sign In</h2>
                         <div class="input-field">
                             <i class="fas fa-user"></i>
-                            <input type="text" placeholder="Username">
+                            <!-- <input type="text" placeholder="Username"> -->
+                            {{ signin_form.name }}
                         </div>
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Password">
+                            <!-- <input type="password" placeholder="Password"> -->
+                            {{ signin_form.password }}
                         </div>
                         <input type="submit" class="btn solid" value="Login">
                         <p class="social-text">Or Sign in with social platforms</p>
@@ -43,7 +45,7 @@
                         </div>
                     </form>
 
-                    <form method='POST' class="sign-up-form"> {% csrf_token %}
+                    <form method='POST' action='' class="sign-up-form"> {% csrf_token %}
                         <h2 class="title">Sign Up</h2>
                         <div class="input-field">
                             <i class="fas fa-user"></i>

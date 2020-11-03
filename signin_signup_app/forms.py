@@ -3,6 +3,9 @@ from django import forms
 from .models import User
 
 class UserSignupForm(forms.ModelForm):
+    # name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Username"}))
+    # email = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "E-Mail"}))
+    # password = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Password"}))
     class Meta:
         model = User
         fields = [
@@ -11,10 +14,14 @@ class UserSignupForm(forms.ModelForm):
             'password'
         ]
         widgets = {
-            'password' : forms.PasswordInput(),
+            'name'     : forms.TextInput(attrs={"placeholder": "Username"}),
+            'email'    : forms.TextInput(attrs={"placeholder": "E-Mail"}),
+            'password' : forms.PasswordInput(attrs={'placeholder': 'Password'}),
         }
     
 class UserSigninForm(forms.ModelForm):
+    # name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Username"}))
+    # password = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Password"}))
     class Meta:
         model = User
         fields = [
@@ -22,5 +29,6 @@ class UserSigninForm(forms.ModelForm):
             'password'
         ]
         widgets = {
-            'password' : forms.PasswordInput(),
+            'name'     : forms.TextInput(attrs={"placeholder": "Username"}),
+            'password' : forms.PasswordInput(attrs={'placeholder': 'Password'}),
         }
