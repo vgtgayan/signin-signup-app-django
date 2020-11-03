@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container:before {
+    content: '';
+    position: absolute;
+    width: 2000px;
+    height: 2000px;
+    /* background-color: mediumblue; */
+    border-radius: 50%;
+    background: linear-gradient(-45deg, #4481eb, #04befe);
+    top: -10%;
+    right: 40%;
+    transform: translateY(-40%);
+    z-index: 6;
+    transition: 1s ease-in-out;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.forms-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.signin-signup {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr;
+    z-index: 5;
+    transition: 0.5s 0.7s ease-in-out;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1 5rem;
+    overflow: hidden;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: 1s 0.3s ease-in-out;
+}
+
+.sign-in-form {
+    z-index: 2;
+}
+.sign-up-form {
+    z-index: 1;
+    opacity: 0;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.input-field {
+    max-width: 380px;
+    width: 100%;
+    height: 55px;
+    background-color: lightcyan;
+    margin: 10px 0;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.input-field i {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    font-size: 1.5rem;
+}
+
+.input-field input {
+    background: none;
+    border: none;
+    outline: none;
+    line-height: 1;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.input-field input::placeholder {
+    color: maroon;
+    font-weight: 500;
+}
+
+.btn {
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: #5995fd;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: .5s;
+}
+
+.btn:hover {
+    background-color: #062761;
+    color: mintcream;
+}
+
+.social-text {
+    padding: 1.7rem;
+    font-size: 2rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #333;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 2rem;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    color: rgb(34, 185, 80);
+    border-color: rgb(34, 185, 80);
+}
+
+.panels-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* background-color: green; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    text-align: center;
+    z-index: 7;
+}
+
+.left-panel {
+    pointer-events: all;
+    padding: 3rem 17% 2rem 12%;
+}
+.right-panel {
+    pointer-events: none;
+    padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+    position: relative;
+    /* width: 100%; */
+    top: 0;
+    left: 40%;
+    color: #fff;
+    transition: 1s 0.4s ease-in-out;
+}
+
+.panel h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.panel p {
+    font-size: 1rem;
+    padding: 0.7rem 0;
+}
+
+.btn.transparent {
+    margin: 0;
+    background: none;
+    border: 2px solid #fff;
+}
+
+.image {
+    width: 100%;
+    transition: 1s 0s ease-in-out;
+}
+
+.right-panel .content, .right-panel .image {
+    transform: translateX(1000px);
+}
+
+/* Animation */
+.container.sign-up-mode::before{
+    transform: translate(100%, -40%);
+    right: 60%;
+}
+
+.container.sign-up-mode .left-panel .content,
+.container.sign-up-mode .left-panel .image {
+    transform: translateX(-1000px);
+}
+
+.container.sign-up-mode .right-panel .content {
+    transform: translateX(-100px);
+}
+.container.sign-up-mode .right-panel .image {
+    transform: translateX(0px);
+}
+
+.container.sign-up-mode .left-panel {
+    pointer-events: none;
+}
+.container.sign-up-mode .right-panel {
+    pointer-events: all;
+}
+
+.container.sign-up-mode .signin-signup{
+    /* transform: translateX(-100%); */
+    left: 25%;
+}
+
+.container.sign-up-mode .sign-in-form {
+    z-index: 1;
+    opacity: 0;
+}
+.container.sign-up-mode .sign-up-form {
+    z-index: 2;
+    opacity: 1;
+}
+
+
+/* Tablet responsive design */
+@media (max-width: 1200px) {
+/* -------------Form------------- */
+    .title {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+    
+    .input-field {
+        max-width: 340px;
+        height: 48px;
+        margin: 8px 0;
+    }
+    
+    .input-field i {
+        line-height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .input-field input {
+        font-size: 1.2rem;
+    }
+    
+    .btn {
+        width: 120px;
+        height: 40px;
+        margin: 8px 0;
+    }
+    
+    .social-text {
+        padding: 0.7rem;
+        font-size: 1.3rem;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        margin: 0 0.5rem;
+        font-size: 1.2rem;
+    }
+}
+
+
+@media (max-width: 870px) {
+    .container {
+        min-height: 800px;
+        height: 100vh;
+    }
+    .container::before {
+        width: 1000px;
+        height: 1000px;
+        left: 40%;
+        bottom: 70%;
+        top: initial;
+        right: initial;
+        transform: translateX(-50%);
+    }
+    .signin-signup{
+        width: 100%;
+        left: 50%;
+        top: 80%;
+        transform: translate(-50%, -85%);
+    }
+    
+/* -------------Form------------- */
+    .title {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+    
+    .input-field {
+        max-width: 300px;
+        height: 40px;
+        margin: 8px 0;
+    }
+    
+    .input-field i {
+        line-height: 40px;
+        font-size: 1rem;
+    }
+    
+    .input-field input {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        width: 100px;
+        height: 35px;
+        margin: 8px 0;
+    }
+    
+    .social-text {
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+        margin: 0 0.5rem;
+        font-size: 1rem;
+    }
+
+    .panels-container{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+
+    .panel{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2.5rem 8%;
+    }
+    .panel .content {
+        position: relative;
+        /* width: 100%; */
+        top: 0;
+        left: 0;
+    }
+    .panel .image{
+        width: 200px;
+    }
+    .left-panel{
+        grid-row: 1 / 2;
+    }
+    .right-panel{
+        grid-row: 3 / 4;
+    }
+    .panel h3{
+        font-size: 1.2rem;
+    }
+    .panel p{
+        font-size: 0.7rem;
+    }
+    .btn.transparent{
+        width: 110px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+
+    .right-panel .content, .right-panel .image {
+        transform: translateY(300px);
+    }
+    /* Animation */
+    .container.sign-up-mode::before{
+        transform: translate(-50%, 80%);
+        bottom: 10%;
+        right: initial;
+    }
+    .container.sign-up-mode .left-panel .content,
+    .container.sign-up-mode .left-panel .image {
+        transform: translateY(-1000px);
+    }
+
+    .container.sign-up-mode .right-panel .content,
+    .container.sign-up-mode .right-panel .image {
+        transform: translateX(0px);
+    }
+
+    .container.sign-up-mode .signin-signup{
+        transform: translate(-50%,0);
+        top: 15%;
+        left: 50%;
+    }
+}
+
+@media (max-width: 570px) {
+    form {
+        padding: 0 1.5rem;
+    }
+    .image{
+        display: none;
+    }
+}

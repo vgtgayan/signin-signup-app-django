@@ -1,0 +1,95 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CDN   ------------------------------------------------------------------------------->
+         <!-- Latest compiled and minified CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+        <!-- jQuery library -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        <!-- Latest compiled JavaScript -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  -->
+
+        <!-- FontAwesome CDN -->
+        <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="{% static 'signin_signup_app/style.css'%}">
+
+        <title>Sign In & Sign Up Form</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="forms-container">
+                <div class="signin-signup">
+                    <form action="" class="sign-in-form">
+                        <h2 class="title">Sign In</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username">
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password">
+                        </div>
+                        <input type="submit" class="btn solid" value="Login">
+                        <p class="social-text">Or Sign in with social platforms</p>
+                        <div class="social-media">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </form>
+
+                    <form method='POST' class="sign-up-form"> {% csrf_token %}
+                        <h2 class="title">Sign Up</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <!-- <input type="text" placeholder="Username"> -->
+                            {{ form.name }}
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <!-- <input type="text" placeholder="Email"> -->
+                            {{ form.email }}
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <!-- <input type="password" placeholder="Password"> -->
+                            {{ form.password }}
+                        </div>
+                        <input type="submit" class="btn solid" value="Sign Up">
+                        <p class="social-text">Or Sign up with social platforms</p>
+                        <div class="social-media">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>New Here?</h3>
+                        <p>Go to Sign Up page here... </p>
+                        <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+                    </div>
+                    <img src="{% static 'signin_signup_app/img/launch.svg'%}" alt="" class="image">
+                </div>
+                <div class="panel right-panel">
+                    <div class="content">
+                        <h3>Already a member?</h3>
+                        <p>Go to Sign In page here... </p>
+                        <button class="btn transparent" id="sign-in-btn">Sign In</button>
+                    </div>
+                    <img src="{% static 'signin_signup_app/img/desk.svg'%}" alt="" class="image">
+                </div>
+            </div>
+        </div>
+        <script type="text/JavaScript" src="{% static 'signin_signup_app/animation.js'%}"></script>
+    </body>
+</html>
