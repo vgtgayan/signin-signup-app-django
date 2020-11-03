@@ -17,8 +17,9 @@ def signin_view(request):
             signup_form.save()
             signup_form = UserSignupForm()
     
-    signin_form = UserSigninForm(request.POST or None)
-    if signin_form.is_valid():
+    signin_form = UserSigninForm(request.POST or None)    
+    # Used ('email' not in request.POST) to distinguish from signup form request.POST
+    if signin_form.is_valid() and ('email' not in request.POST):
         try:
             user = User.objects.get(name=signin_form.cleaned_data['name'])
         except User.DoesNotExist:
