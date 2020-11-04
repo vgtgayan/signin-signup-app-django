@@ -30,6 +30,9 @@
                             <!-- <input type="text" placeholder="Username"> -->
                             {{ signin_form.name }}
                         </div>
+                        {% if valid_usr == False %}
+                            <p class="">Username does not exists...</p>
+                        {% endif %}
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
                             <!-- <input type="password" placeholder="Password"> -->
