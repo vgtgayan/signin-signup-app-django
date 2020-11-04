@@ -35,6 +35,9 @@
                             <!-- <input type="password" placeholder="Password"> -->
                             {{ signin_form.password }}
                         </div>
+                        {% if valid_pwd == False %}
+                            <p class="">Incorrect Password...</p>
+                        {% endif %}
                         <input type="submit" class="btn solid" value="Login">
                         <p class="social-text">Or Sign in with social platforms</p>
                         <div class="social-media">

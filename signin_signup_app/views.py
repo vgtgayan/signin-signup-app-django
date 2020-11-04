@@ -16,7 +16,9 @@ def signin_view(request):
         except User.DoesNotExist:
             signup_form.save()
             signup_form = UserSignupForm()
+            return render(request, 'signin_signup_app/signup_page.html', {})
     
+    valid_pwd = True    
     signin_form = UserSigninForm(request.POST or None)    
     # Used ('email' not in request.POST) to distinguish from signup form request.POST
     if signin_form.is_valid() and ('email' not in request.POST):
@@ -25,12 +27,17 @@ def signin_view(request):
         except User.DoesNotExist:
             return redirect('/')
         if user.password == signin_form.cleaned_data['password']:
-            return HttpResponse("<h1>You have logged in</h1>")
+            # return HttpResponse("<h1>You have logged in</h1>")
+            return render(request, 'signin_signup_app/signin_page.html', {})
+        else:
+            # return HttpResponse("<h1>Incorrect Password</h1>")
+            valid_pwd = False
 
     
     context = {
         'signup_form' : signup_form,
-        'signin_form' : signin_form
+        'signin_form' : signin_form,
+        'valid_pwd'   : valid_pwd
     }
 
     return render(request, 'signin_signup_app/index.html', context)
