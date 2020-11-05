@@ -1,0 +1,1 @@
+web: gunicorn signin_signup_prj.wsgi
